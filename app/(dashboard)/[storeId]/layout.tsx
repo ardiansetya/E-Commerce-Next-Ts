@@ -23,6 +23,9 @@ const DashboardLayout = async ({
       userId,
     },
   });
+  if (!store) {
+    redirect("/");
+  }
   return (
     <>
       <div>ini navbar</div>

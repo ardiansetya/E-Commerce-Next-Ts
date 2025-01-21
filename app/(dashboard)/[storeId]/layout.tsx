@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import db from "@/lib/db";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
@@ -28,7 +29,7 @@ const DashboardLayout = async ({
   }
   return (
     <>
-      <div>ini navbar</div>
+      <Navbar />
       {children}
     </>
   );

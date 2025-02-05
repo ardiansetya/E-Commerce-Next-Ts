@@ -17,6 +17,7 @@ import {
   CommandSeparator,
 } from "./ui/command";
 import { CommandGroup } from "cmdk";
+import { ClerkLoading } from "@clerk/nextjs";
 
 type PopoverTriggerProps = React.ComponentPropsWithoutRef<
   typeof PopoverTrigger
@@ -32,7 +33,10 @@ const StoreSwitcher = ({ className, items = [] }: StoreSwitcherProps) => {
   const params = useParams();
   const router = useRouter();
 
+  console.log({params})
+
   const formattedItems = items.map((item) => ({
+    ...item,
     label: item.name,
     value: item.id,
   }));
@@ -45,6 +49,8 @@ const StoreSwitcher = ({ className, items = [] }: StoreSwitcherProps) => {
   const currentStore = formattedItems.find(
     (item) => item.value === params.storeId
   );
+
+  
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
